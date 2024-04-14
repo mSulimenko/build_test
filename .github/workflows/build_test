@@ -1,0 +1,37 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '10'
+
+    - name: Install nswag
+      run: npm install nswag@14.0.3 -g
+
+    - name: Restore NuGet packages
+      run: dotnet restore
+
+    - name: Install client dependencies
+      run: cd client && npm install
+
+    - name: Build project
+      run:
+        nswag run apigen.nswag
+        nswag run clientgen.nswag
+
+    - name: Run application
+      run: 
+        dotnet run --project server -lp https
