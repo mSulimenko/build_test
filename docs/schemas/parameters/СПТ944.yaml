@@ -1,5 +1,5 @@
 templates:
-  - name: temperatureSensor
+  - name: temperatureSensor1
     description: Назначение датчика температуры, подключаемого ко входу ТС$1.
     type: selector
     items:
