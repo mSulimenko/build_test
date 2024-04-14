@@ -29,7 +29,7 @@ jobs:
 
     - name: Build api
       run:
-        nswag run apigen.nswag /runtime:Net60
+        nswag run cd .. && apigen.nswag /runtime:Net60
         
     - name: Build clirnt
       run:
