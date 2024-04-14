@@ -16,7 +16,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '10'
+        node-version: '20'
 
     - name: Install nswag
       run: npm install nswag@14.0.3 -g
@@ -31,12 +31,9 @@ jobs:
         cd ..
 
     - name: Build api
-      run:
-        nswag run apigen.nswag
-        
-    - name: Build clirnt
-      run:
-        nswag run clientgen.nswag
+      run: |
+        nswag run apigen.nswag /runtime:Net60
+        nswag run clientgen.nswag /runtime:Net60
 
     - name: Run application
       run: 
