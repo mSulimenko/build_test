@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # battery-devices-master
 
 ## Setup Instruction 
@@ -20,3 +21,6 @@
 [Скринкаст работы приложения](https://drive.google.com/file/d/1P27lMn_53urH26l79JT_YdW_Vn4TxeT_/view?usp=sharing)
 
 [Презентация](https://docs.google.com/presentation/d/1HEqx0hy5rIVZiJH80dui4qmq9hYMK1HpA-GMuQUQEFE/edit?usp=sharing)
+=======
+# test_build
+>>>>>>> 623fee862ed6d64ddae39db76aa520c1ba490fbc
