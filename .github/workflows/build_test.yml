@@ -32,8 +32,8 @@ jobs:
 
     - name: Build api
       run: |
-        nswag run apigen.nswag
-        nswag run clientgen.nswag /runtime:Net60
+        dotnet "C:\Program Files (x86)\Rico Suter\NSwagStudio\Net60\dotnet-nswag.dll" run apigen.nswag
+        dotnet "C:\Program Files (x86)\Rico Suter\NSwagStudio\Net60\dotnet-nswag.dll" run clientgen.nswag
 
     - name: Run application
       run: 
