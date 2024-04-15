@@ -32,8 +32,8 @@ jobs:
 
     - name: Build api
       run: |
-        nswag run /runtime:Net60 apigen.nswag
-        nswag run /runtime:Net60 clientgen.nswag
+        nswag run apigen.nswag
+        nswag run clientgen.nswag /runtime:Net60
 
     - name: Run application
       run: 
