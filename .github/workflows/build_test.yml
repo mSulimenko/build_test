@@ -30,6 +30,9 @@ jobs:
         npm install
         cd ..
 
+    - name: find nswag
+      run: npm list -g nswag
+
     - name: Build api
       run: |
         dotnet "C:\Program Files (x86)\Rico Suter\NSwagStudio\Net60\dotnet-nswag.dll" run apigen.nswag
