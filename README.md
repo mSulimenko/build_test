@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# battery-devices-master
+# battery-devices-maste1r
 
 ## Setup Instruction 
 
