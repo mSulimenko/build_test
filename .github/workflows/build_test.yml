@@ -37,7 +37,7 @@ jobs:
         
     - name: Run application
       run: dotnet run --project server -lp https
-      timeout-minutes: 1
+       timeout-seconds: 30
 
     - name: Check build status
       if: ${{ failure() }}
