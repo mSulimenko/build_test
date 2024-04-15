@@ -31,7 +31,8 @@ jobs:
         cd ..
 
     - name: find nswag
-      run: npm list -g nswag
+      run: npm list -g --depth=0
+
 
     - name: Build api
       run: |
