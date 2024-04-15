@@ -34,7 +34,11 @@ jobs:
       run: |
         dotnet "C:\npm\prefix\node_modules\nswag\bin\binaries\Net60\dotnet-nswag.dll" run apigen.nswag
         dotnet "C:\npm\prefix\node_modules\nswag\bin\binaries\Net60\dotnet-nswag.dll" run clientgen.nswag
-
+        
     - name: Run application
-      run: 
-        dotnet run --project server -lp https
+      run: dotnet run --project server -lp https
+      timeout-minutes: 1
+
+    - name: Check build status
+      if: ${{ failure() }}
+      run: exit 1 
