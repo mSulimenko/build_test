@@ -36,8 +36,7 @@ jobs:
         dotnet "C:\npm\prefix\node_modules\nswag\bin\binaries\Net60\dotnet-nswag.dll" run clientgen.nswag
         
     - name: Run application
-      run: dotnet run --project server -lp https
-       timeout-seconds: 30
+      run: timeout /t 60 /nobreak dotnet run --project server -lp https
 
     - name: Check build status
       if: ${{ failure() }}
