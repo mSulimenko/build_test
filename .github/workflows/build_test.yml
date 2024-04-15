@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest  # Используем Linux для совместимости с .NET Core SDK
 
     steps:
     - name: Checkout repository
@@ -16,25 +16,23 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '20'
+        node-version: '14'  # Укажите версию Node.js, совместимую с вашим проектом
 
     - name: Install nswag
       run: npm install nswag@14.0.3 -g
 
-    - name: Restore NuGet packages
-      run: dotnet restore
-
-    - name: Install client dependencies
+    - name: Restore NuGet packages and build project
       run: |
+        dotnet restore
         cd client
         npm install
         cd ..
+        dotnet build
 
-    - name: Build api
+    - name: Generate API code
       run: |
-        nswag run apigen.nswag /runtime:Net60
-        nswag run clientgen.nswag /runtime:Net60
+        dotnet nswag run apigen.nswag
+        dotnet nswag run clientgen.nswag
 
     - name: Run application
-      run: 
-        dotnet run --project server -lp https
+      run: dotnet run --project server -lp https
